@@ -1,4 +1,4 @@
-DecToBin. Java tutorials. Console Application. Simple Input/Output. Strings. Algorithms. 
+DecToBin. Java tutorials. Console Application. Simple Input/Output. Strings. Algorithms.
 A console application in the Java programming language. 
 The program does the following:
   1. Prompts the user to enter an integer.
