@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 package com.home.dectobin;
-import java.util.regex.*;
 
 /**
  *
@@ -13,18 +12,28 @@ public class DecToBin
 
     public static void main(String[] args) throws Exception
     {
+        final long MAX_INT = 2L * Integer.MAX_VALUE + 1L;
         var console = System.console();
-        var oRegExpr = Pattern.compile("^[0-9]+$");
+        var bIsNumber = false;
+        var uNumber = 0L;
+        var strLine = "";
         System.out.println("input an unsigned integer number");
-        var strLine = console.readLine();
-        var oMatcher = oRegExpr.matcher(strLine);
-        var bIsNumber = oMatcher.matches();
+        try
+        {
+            strLine = console.readLine();
+            uNumber = Long.parseUnsignedLong(strLine);
+            bIsNumber = uNumber <= MAX_INT;
+        }
+        catch(Exception e)
+        {
+            bIsNumber = false;
+        }
         if(!bIsNumber)
         {
             System.out.println("Invalid decimal number format.");
+            System.exit(0);
             return;
         }
-        var uNumber = Integer.parseUnsignedInt(strLine);
         var uTempVal = uNumber;
         strLine = "";
         while(uTempVal > 0)
@@ -36,7 +45,7 @@ public class DecToBin
             strLine = "0";
         System.out.format
         (
-           "The binary equavalent of the decimal number %d is: %s\r\n", 
+           "The binary equivalent of the decimal number %d is: %s\r\n", 
            uNumber, strLine
         );
     }
