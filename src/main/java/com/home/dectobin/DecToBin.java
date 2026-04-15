@@ -38,7 +38,9 @@ public class DecToBin
         strLine = "";
         while(uTempVal > 0)
         {
-            strLine = (uTempVal % 2) + strLine;
+            var nBinDigit = uTempVal % 2;
+            char chBinDigit = (char)(nBinDigit + '0');
+            strLine = chBinDigit + strLine;
             uTempVal /= 2;
         }
         if(strLine.length() == 0)
